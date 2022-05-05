@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Vis_curs.Views.SecondView">
+
+
+	<Grid ColumnDefinitions="*,*" RowDefinitions="25*,75*" ShowGridLines="False">
+		<ScrollViewer Grid.Row="0">
+			<ItemsControl Items="{Binding MainContext.Request}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border BorderBrush="Black" BorderThickness="1">
+							<Grid ColumnDefinitions="4*,*,*">
+								<TextBlock Grid.Column="0" Text="{Binding Header}"
+								 VerticalAlignment="Center"/>
+								<Button HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1,0,0,0" Grid.Column="1" Content="Show"/>
+								<Button HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1,0,0,0" Grid.Column="2" Content="Delete"/>
+							</Grid>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+
+		<StackPanel Grid.Row="0" Grid.Column="1">
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Новый запрос"/>
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Выбрать"/>
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Соединить"/>
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Группировать"/>
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Выйти" Command="{Binding $parent[Window].DataContext.Change}"/>
+		</StackPanel>
+
+		<ScrollViewer Grid.Row="1" Grid.ColumnSpan="2">
+			<DataGrid Items="{Binding MainContext.Grid}" AutoGenerateColumns="False">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="ФИО"  Binding="{Binding Column1}"/>
+					<DataGridTextColumn Header="Дата рождения"  Binding="{Binding Column2}"/>
+					<DataGridTextColumn Header="Национальность"  Binding="{Binding Column3}"/>
+					<DataGridTextColumn Header="Чемпионаты"  Binding="{Binding Column4}"/>
+					<DataGridTextColumn Header="Победы"  Binding="{Binding Column5}"/>
+					<DataGridTextColumn Header="Подиумы"  Binding="{Binding Column6}"/>
+				</DataGrid.Columns>
+			</DataGrid>
+
+		</ScrollViewer>
+		
+	</Grid>
+	
+	
+</UserControl>
