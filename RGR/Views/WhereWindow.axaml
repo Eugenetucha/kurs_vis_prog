@@ -10,9 +10,9 @@
         CanResize="False"
         x:Class="RGR.Views.WhereWindow"
         Title="WhereWindow">
-  <Grid ColumnDefinitions="200, *, 200" Background="LightGray">
+  <Grid ColumnDefinitions="200, *, 200" Background="Blue">
     <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="0">
-      <TreeView Background="White" Items="{Binding TargetQuery.Items}" Name="TreeView1">
+      <TreeView Background="Red" Items="{Binding TargetQuery.Items}" Name="TreeView1">
         <TreeView.DataTemplates>
           <TreeDataTemplate DataType="{x:Type model:MyQueryItem}" ItemsSource="{Binding Table.Columns}">
             <TextBlock Text="{Binding TableName}"/>
@@ -56,8 +56,8 @@
         <Button Content="Cancel" Click="CancelClick" />
       </StackPanel>
     </Grid>
-    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2" Grid.Row="0">
-      <TreeView Background="White" Items="{Binding AllItems}" Name="TreeView2" SelectionChanged="TreeSelected">
+    <Border BorderBrush="Blue" BorderThickness="1" Grid.Column="2" Grid.Row="0">
+      <TreeView Background="Red" Items="{Binding AllItems}" Name="TreeView2" SelectionChanged="TreeSelected">
         <TreeView.DataTemplates>
           <TreeDataTemplate DataType="{x:Type data:DataTable}" ItemsSource="{Binding Columns}">
             <TextBlock Text="{Binding TableName}"/>

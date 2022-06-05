@@ -7,10 +7,10 @@
         Title="QueryWindow">
   
   <Grid ColumnDefinitions="150, *, 120">
-    <Grid RowDefinitions="50, *" Grid.Column="0" Background="LightGray">
+    <Grid RowDefinitions="50, *" Grid.Column="0" Background="Blue">
       <Button Content="New Query" Grid.Row="0" HorizontalAlignment="Center" Click="CreateQuery"/>
       <Border Grid.Row="1"  Margin="10">
-        <ListBox Items="{Binding QueryItems}" Background="White" SelectedItem="{Binding TargetQuery}">
+        <ListBox Items="{Binding QueryItems}" Background="Red" SelectedItem="{Binding TargetQuery}">
           <ListBox.Styles>
             <Style Selector="ListBoxItem">
               <Setter Property="Height" Value="30" />
@@ -32,7 +32,7 @@
     <Border Grid.Column="1" BorderThickness="2" BorderBrush="Black">
       <Grid RowDefinitions="60, *" >
         <StackPanel Orientation="Horizontal" Grid.Row="0" Spacing="10" HorizontalAlignment="Center">
-          <TextBox Watermark="Query name" Text="{Binding TargetQuery.QueryName}" Height="35" Width="150" Background="White"/>
+          <TextBox Watermark="Query name" Text="{Binding TargetQuery.QueryName}" Height="35" Width="150" Background="Red"/>
           <Button Content="Delete" />
           <Button Content="Join" Click="JoinQuery" />
           <Button Content="Where" Click="WhereQuery"/>

@@ -10,9 +10,9 @@
         CanResize="False"
         x:Class="RGR.Views.JoinWindow"
         Title="JoinWindow">
-  <Grid ColumnDefinitions="*, *" RowDefinitions="*, 50" Background="LightGray">
+  <Grid ColumnDefinitions="*, *" RowDefinitions="*, 50" Background="Blue">
     <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="0">
-      <TreeView Background="White" Items="{Binding TargetQuery.Items}" Name="TreeView1">
+      <TreeView Background="Red" Items="{Binding TargetQuery.Items}" Name="TreeView1">
         <TreeView.DataTemplates>
           <TreeDataTemplate DataType="{x:Type model:MyQueryItem}" ItemsSource="{Binding Table.Columns}">
             <TextBlock Text="{Binding TableName}"/>
@@ -24,7 +24,7 @@
       </TreeView>
     </Border>
     <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="0">
-      <TreeView Background="White" Items="{Binding AllItems}" Name="TreeView2">
+      <TreeView Background="Red" Items="{Binding AllItems}" Name="TreeView2">
         <TreeView.DataTemplates>
           <TreeDataTemplate DataType="{x:Type data:DataTable}" ItemsSource="{Binding Columns}">
             <TextBlock Text="{Binding TableName}"/>

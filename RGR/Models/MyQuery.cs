@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Collections.ObjectModel;
 using ReactiveUI;
@@ -13,16 +10,12 @@ namespace RGR.Models
     public class MyQuery: DataTable, IReactiveObject
     {
 
-        private string queryString;
+        private string _queryString = null!;
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public event PropertyChangingEventHandler? PropertyChanging;
 
-        public string QueryString
-        {
-            get => queryString;
-            private set => queryString=value;
-        }
+        public string QueryString => _queryString;
 
         private void GenerateQuery()
         {
@@ -45,8 +38,8 @@ namespace RGR.Models
                 var tbn = Items[i].TableName;
                 if(Joins[i-1].secondTable as MyQuery != null)
                 {
-                    (Joins[i - 1].secondTable as MyQuery).GenerateQuery();
-                    tbn = "(" + (Joins[i - 1].secondTable as MyQuery).QueryString + ") as "+tbn;
+                    (Joins[i - 1].secondTable as MyQuery)?.GenerateQuery();
+                    tbn = "(" + (Joins[i - 1].secondTable as MyQuery)?.QueryString + ") as "+tbn;
                 }
                 res +=" JOIN "+tbn+" ON "+t1+"="+t2;
             }
@@ -65,17 +58,17 @@ namespace RGR.Models
             }
             foreach(var str in GroupItems)
             {
-                res += " GROUP BY '" + str+"'";
+                res += " GROUP BY " + str;
             }
             res += ";";
-            queryString = res;
+            _queryString = res;
         }
         public void Run()
         {
             GenerateQuery();
             Clear();
             Columns.Clear();
-            DBContext.getInstance().GetQuery(QueryString, this);
+            DbContext.GetInstance().GetQuery(QueryString, this);
         }
 
         
@@ -138,7 +131,7 @@ namespace RGR.Models
             get;
             set;
         }
-        public MyQuery(string name) :base()
+        public MyQuery(string name)
         {
             TableName = name;
             Items = new ObservableCollection<MyQueryItem>();

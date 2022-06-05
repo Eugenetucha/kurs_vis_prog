@@ -3,7 +3,6 @@
         xmlns:vm="using:RGR.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="using:RGR.Views"
         xmlns:model="using:RGR.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RGR.Views.MainWindow"
@@ -46,8 +45,8 @@
         </DataTemplate>
       </ListBox.DataTemplates>
     </ListBox>
-    <Border BorderBrush="Black" BorderThickness="1" Background="LightGray" Grid.Row="2">
-      <DataGrid Items="{Binding SelectedTable.Rows}" Background="White" x:Name="dGrid" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" IsReadOnly="False">
+    <Border BorderBrush="Black" BorderThickness="1" Background="Red" Grid.Row="2">
+      <DataGrid Items="{Binding SelectedTable.Rows}" Background="Red" x:Name="dGrid" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" IsReadOnly="False">
         
       </DataGrid>
     </Border>

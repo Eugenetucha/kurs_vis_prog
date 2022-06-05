@@ -12,7 +12,7 @@ namespace RGR.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         private DataSet tables;
-        private DBContext context;
+        private DbContext context;
 
         private ObservableCollection<DataTable> tablesList;
         public ObservableCollection<DataTable> Tables
@@ -31,8 +31,8 @@ namespace RGR.ViewModels
         
         public MainWindowViewModel()
         {
-            context = DBContext.getInstance();
-            tables = context.getDataSet();
+            context = DbContext.GetInstance();
+            tables = context.GetDataSet();
             Tables = new ObservableCollection<DataTable>();
             foreach(DataTable t in tables.Tables)
             {
@@ -67,11 +67,6 @@ namespace RGR.ViewModels
         public void OnClick()
         {
             context.Save(tables);
-        }
-        public void deleteQuery(MyQuery quer)
-        {
-            Tables.Remove(quer);
-            this.RaisePropertyChanged("Tables");
         }
     }
 }

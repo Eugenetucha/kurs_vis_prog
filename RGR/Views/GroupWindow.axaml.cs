@@ -28,13 +28,13 @@ namespace RGR.Views
             if (selected != null)
             {
                 var res = selected.Table.TableName + "." + selected.ColumnName;
-                this.Close(res);
+                Close(res);
             }
         }
 
         private void CancelClick(object? sender, RoutedEventArgs args)
         {
-            this.Close();
+            Close();
         }
 
     }

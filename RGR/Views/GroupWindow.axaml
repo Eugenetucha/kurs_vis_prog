@@ -10,9 +10,9 @@
         CanResize="False"
         x:Class="RGR.Views.GroupWindow"
         Title="GroupWindow">
-  <Grid ColumnDefinitions="*, 100" Background="LightGray">
+  <Grid ColumnDefinitions="*, 100" Background="Blue">
     <Border BorderBrush="Black" BorderThickness="1">
-      <TreeView Background="White" Items="{Binding TargetQuery.Items}" Name="TreeView">
+      <TreeView Background="Red" Items="{Binding TargetQuery.Items}" Name="TreeView">
         <TreeView.DataTemplates>
           <TreeDataTemplate DataType="{x:Type model:MyQueryItem}" ItemsSource="{Binding Table.Columns}">
             <TextBlock Text="{Binding TableName}"/>

@@ -34,7 +34,7 @@ namespace RGR.Views
                 res.secondTable = item2.Table;
                 res.firstColumn = item1.ColumnName;
                 res.secondColumn = item2.ColumnName;
-                this.Close(res);
+                Close(res);
             }
         }
         private void CancelClick(object? sender, RoutedEventArgs args)

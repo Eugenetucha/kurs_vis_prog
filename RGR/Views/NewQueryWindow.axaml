@@ -11,7 +11,7 @@
   
   <Grid RowDefinitions="*, 50" ColumnDefinitions="*" >
     <Border Grid.Row="0" BorderBrush="Black" BorderThickness="2" Margin="20 0 20 0">
-      <ListBox Background="White" Items="{Binding AllItems}" Name="mList">
+      <ListBox Background="Red" Items="{Binding AllItems}" Name="mList">
         <ListBox.Styles>
           <Style Selector="ListBoxItem">
             <Setter Property="Height" Value="30" />

@@ -76,10 +76,6 @@ namespace RGR.ViewModels
             queryList = new ObservableCollection<MyQuery>();
             allItems = new ObservableCollection<DataTable>();
         }
-        public void CreateQuery()
-        {
-            
-        }
 
     }
 }
